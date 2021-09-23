@@ -1,0 +1,77 @@
+body {
+  background-color: #F6AA1C;
+  color: #220901;
+  font-family: 'Creepster', cursive;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 3px solid pink;
+  padding: 10px;
+  font-size: 4vh;
+}
+
+main {
+  border: 3px solid green;
+  display: flex;
+  flex-direction: wrap;
+  justify-content: space-evenly;
+  height: 50%;
+  width: 100%;
+}
+
+.button-container {
+  border: 3px solid blue;
+  margin: 5px;
+}
+
+.board {
+  border: 3px solid red;
+  width: 60vh;
+  height: 50vh;
+  display: flex;
+  flex-direction: row;
+}
+
+.row-1, .row-2, .row-3 {
+  border: 3px solid green;
+  height: 33%;
+  width: 100%;
+}
+
+.player1-container, .player2-container {
+  border: 3px solid black;
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  background-color: #BC3908;
+}
+
+.square {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  border: 3px solid blue;
+}
+
+h2 {
+  font-size: 4.5vh;
+  margin: 3px;
+}
+
+button {
+  background-color: #941B0C;
+  color: #F6AA1C;
+  border: 0px;
+  border-radius: 8px;
+  padding: 10px;
+  cursor: pointer;
+  font-family: 'Creepster', cursive;
+  font-size: 5vh;
+}
+
+button:hover {
+  transform: scale(1.3);
+}
