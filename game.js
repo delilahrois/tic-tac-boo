@@ -2,15 +2,18 @@ class Game {
   constructor() {
     this.player1 = new Player('1', '🧛‍♀️');
     this.player2 = new Player('2', '👻');
-    this.turn = this.player1;
-
+    this.player1Turn = true;
+    this.player2Turn = false;
+    // winning combos 
   }
 
   switchTurns() {
-    if (this.turn == this.player1) {
-      this.turn = this.player2;
+    if (this.player1Turn === true) {
+      this.player1Turn = false;
+      this.player2Turn = true;
     } else {
-      this.turn = this.player1;
+      this.player1Turn = true;
+      this.player2Turn = false;
     }
   }
 }

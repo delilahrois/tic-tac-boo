@@ -21,16 +21,22 @@ function resetBoard() {
 //if event.target.contains(that classlist) replace or don't replace the emoji inside
 
 function placeToken() {
-  if (event.target.classList.contains('.square')) {
-    if (game.turn.token === '🧛‍♀️') {
-      event.target.innerText += '🧛‍♀️';
-    } else {
-      event.target.innerText += '👻';
+  if (event.target.classList.contains('square')) {
+    if (game.player1Turn === true) {
+      event.target.innerHTML = `
+      <p>🧛‍♀️</p>
+      `
+    } else if (game.player2Turn === true){
+      console.log('conditional 2')
+      event.target.innerHTML = `
+      <p>👻</p>
+      `
       }
     }
-
-  game.turn.token;
+    //make an error handling situation for emojis being replaced
   game.switchTurns();
+  //change innerText of header to say whose turn it is.
+
   // if (!selectedSquares.includes(event.target.id)) {
   //   selectedSquares.push(event.target.id);
     // if (event.target.id) {
