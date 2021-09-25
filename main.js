@@ -3,6 +3,7 @@
 var board = document.querySelector('#board');
 var startBtn = document.querySelector('#startBtn');
 var squares = document.querySelectorAll('.square');
+var header = document.querySelector('#header');
 
 var player1Scoreboard = document.querySelector('#p1Scoreboard');
 var player2Scoreboard = document.querySelector('#p2Scoreboard');
@@ -13,42 +14,72 @@ board.addEventListener('click', placeToken);
 
 function resetBoard() {
   game = new Game();
-  // var player1 = new Player('1', '🧛‍♀️');
-  // var player2 = new Player('2', '👻');
-  squares.innerText = '';
-}
-// game = new Game(player1, player2);
-//if event.target.contains(that classlist) replace or don't replace the emoji inside
+  header.innerText = 'Welcome to Tic-Tac-Toe!';
+  board.innerHTML = `
+  <section class="board" id="board">
+    <section class="row-1">
+      <div class="square" id="1">
+    </div>
+      <div class="square" id="2"></div>
+      <div class="square" id="3"></div>
+    </section>
+    <section class="row-2">
+      <div class="square" id="4"></div>
+      <div class="square" id="5"></div>
+      <div class="square" id="6"></div>
+    </section>
+    <section class="row-3">
+      <div class="square" id="7"></div>
+      <div class="square" id="8"></div>
+      <div class="square" id="9"></div>
+    </section>
+  </section>
+  `
+};
 
 function placeToken() {
-  if (event.target.classList.contains('.square')) {
-    if (game.turn.token === '🧛‍♀️') {
-      event.target.innerText += '🧛‍♀️';
+  if (event.target.classList.contains('square')) {
+    if (game.player1Turn === true && !game.playedSquaresP1.includes(event.target.id) && !game.playedSquaresP2.includes(event.target.id)) {
+      game.playedSquaresP1.push(event.target.id);
+      event.target.innerHTML = `
+      <p>🧛‍♀️</p>
+      `
+      game.switchTurns();
+    } else if (game.player2Turn === true && !game.playedSquaresP2.includes(event.target.id) && !game.playedSquaresP1.includes(event.target.id)){
+      game.playedSquaresP2.push(event.target.id);
+      event.target.innerHTML = `
+      <p>👻</p>
+      `
+      game.switchTurns();
     } else {
-      event.target.innerText += '👻';
-      }
+      return;
     }
-
-  game.turn.token;
-  game.switchTurns();
-  // if (!selectedSquares.includes(event.target.id)) {
-  //   selectedSquares.push(event.target.id);
-    // if (event.target.id) {
-    //
-    // }
-//if the square clicked on does not contain an emoji, add the emoji of the current player. (game.turn).
-//if the square clicked on DOES contain an emoji, return.
-
-    // checkForWins();
+    checkForWins();
     // if no wins,
-    // h1 innerText = 'it's ${currentPlayer}'s turn'
-}
-// function updateScore() {
-//
-// }
+    checkCurrentPlayer();
+  }
+};
 
-// function checkForWins() {
-//
-// }
+function updateScore() {
 
-// function to check whose turn it is
+};
+
+function checkCurrentPlayer() {
+  var currentPlayer;
+  if (game.player1Turn === true) {
+      currentPlayer = game.player1;
+  } else {
+      currentPlayer = game.player2;
+  }
+  header.innerText = `It's ${currentPlayer.token}'s turn!`;
+};
+
+function checkForWins() {
+  for (var i=0; i<game.winningCombos.length; i++) {
+      if (game.playedSquaresP1.includes(game.winningCombos[i])) {
+        game.winner = game.player1;
+        header.innerText = "Player 🧛‍♀️ wins!";
+        game.player1Wins++;
+      }
+  }
+};

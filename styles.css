@@ -43,13 +43,15 @@ aside {
   width: 60vh;
   height: 50vh;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   cursor: pointer;
 }
 
 .row-1, .row-2, .row-3 {
   height: 33%;
   width: 100%;
+  display: flex;
+  flex-direction: row;
 }
 
 .player1-container, .player2-container {
@@ -61,6 +63,7 @@ aside {
 .square {
   display: flex;
   height: 100%;
+  width: 33.33%;
   justify-content: center;
   align-items: center;
   border: 1px solid black;
