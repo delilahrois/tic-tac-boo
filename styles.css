@@ -26,7 +26,17 @@ main {
 
 aside {
   display: flex;
-  border: 3px solid green;
+  flex-direction: column;
+  align-items: center;
+}
+
+.player-containers {
+  display: flex;
+  justify-content: space-between;
+}
+
+.player-1-header {
+  margin-right: 55vw;
 }
 
 .board {
@@ -52,16 +62,25 @@ aside {
   display: flex;
   height: 100%;
   justify-content: center;
+  align-items: center;
   border: 1px solid black;
+  font-size: 60px;
 }
 
 h2 {
-  font-size: 4.5vh;
-  margin: 3px;
+  font-size: 6vh;
+  height: 40px;
+  margin: 0px;
 }
 
 .scoreboard {
   margin: 3px solid blue;
+  height: 200px;
+  width: 200px;
+  font-size: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 button {
@@ -78,4 +97,12 @@ button {
 
 button:hover {
   transform: scale(1.3);
+}
+
+.player1Token {
+  background-image: url();
+}
+
+.player2Token {
+
 }

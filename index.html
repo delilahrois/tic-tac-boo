@@ -8,21 +8,23 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
     <title>Tic-Tac-Toe</title>
-    <!-- this is where the favicon will go!>
-    <!-<link rel="shortcut icon" type="svg" href="assets/sparkles.svg"/></svg> -->
+    <link rel="shortcut icon" type="svg" href="assets/jack.svg"/>
   </head>
   <body>
     <header>
       <h1>Welcome to Tic-Tac-Toe!</h1>
       <div class="btn-container" id="btnContainer">
-        <button class="start-btn" id="startBtn">BEGIN</button>
-      <!--this is where the "begin" or "reset" buttons will go.-->
+        <button class="start-btn" id="startBtn">RESTART</button>
       </div>
+      <section class="player-containers">
+        <h2 class="player-1-header">Player 🧛‍♀️</h2>
+        <h2 class="player-2-header">Player 👻</h2>
+      </section>
     </header>
     <main>
       <aside class="player1-container">
-        <h2>Player One</h2> <!-- insert P1 here-->
-        <div class="scoreboard" id="p1Scoreboard"><!-- this is P1's score board!--></div>
+        <!-- <h2>Player One</h2> -->
+        <div class="scoreboard" id="p1Scoreboard"></div>
       </aside>
       <section class="board" id="board">
         <section class="row-1">
@@ -42,8 +44,11 @@
         </section>
       </section>
       <aside class="player2-container">
-        <h2>Player Two</h2> <!-- insert P2 here-->
-        <div class="scoreboard" id="p2Scoreboard"><!--this is P2's score board!--></div>
+        <!-- <h2>Player Two</h2> -->
+        <div class="scoreboard" id="p2Scoreboard"></div>
       </aside>
     </main>
+    <script type="text/javascript" src="main.js"></script>
+    <script type="text/javascript" src="game.js"></script>
+    <script type="text/javascript" src="player.js"></script>
   </body>
