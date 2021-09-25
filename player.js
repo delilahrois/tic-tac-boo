@@ -1,7 +1,16 @@
 class Player {
-  constructor() {
-    
+  constructor(id, token) {
+    this.id = id;
+    this.token = token;
+    this.wins = 0;
+    this.turn = false;
+  }
+
+  saveWinsToStorage() {
+
+  }
+
+  retrieveWinsFromStorage() {
+
   }
 }
-
-module.exports = Player;
