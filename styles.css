@@ -34,6 +34,7 @@ aside {
   height: 50vh;
   display: flex;
   flex-direction: row;
+  cursor: pointer;
 }
 
 .row-1, .row-2, .row-3 {
