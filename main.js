@@ -1,17 +1,17 @@
-// *** THIS FILE SHOULD CONTAIN all DOM-related JS.
-// we will want to display each player's win in the aside sections.
+// Query Selectors
 var board = document.querySelector('#board');
 var startBtn = document.querySelector('#startBtn');
 var squares = document.querySelectorAll('.square');
 var header = document.querySelector('#header');
-
 var player1Scoreboard = document.querySelector('#p1Scoreboard');
 var player2Scoreboard = document.querySelector('#p2Scoreboard');
 
+// Event Listeners
 window.addEventListener('load', resetBoard);
 startBtn.addEventListener('click', resetBoard);
 board.addEventListener('click', placeToken);
 
+// Functions
 function resetBoard() {
   game = new Game();
   header.innerText = 'Welcome to Tic-Tac-Toe!';
@@ -38,6 +38,9 @@ function resetBoard() {
 };
 
 function placeToken() {
+  if (game.winner) {
+    return;
+  }
   if (event.target.classList.contains('square')) {
     if (game.player1Turn === true && !game.playedSquaresP1.includes(event.target.id) && !game.playedSquaresP2.includes(event.target.id)) {
       game.playedSquaresP1.push(event.target.id);
@@ -54,9 +57,12 @@ function placeToken() {
     } else {
       return;
     }
-    checkForWins();
+    game.checkForWins();
+    game.detectDraw();
     // if no wins,
-    checkCurrentPlayer();
+    if (game.winner === null) {
+      checkCurrentPlayer();
+    }
   }
 };
 
@@ -72,14 +78,4 @@ function checkCurrentPlayer() {
       currentPlayer = game.player2;
   }
   header.innerText = `It's ${currentPlayer.token}'s turn!`;
-};
-
-function checkForWins() {
-  for (var i=0; i<game.winningCombos.length; i++) {
-      if (game.playedSquaresP1.includes(game.winningCombos[i])) {
-        game.winner = game.player1;
-        header.innerText = "Player 🧛‍♀️ wins!";
-        game.player1Wins++;
-      }
-  }
 };
