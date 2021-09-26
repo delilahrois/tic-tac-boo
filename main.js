@@ -58,8 +58,8 @@ function placeToken() {
       return;
     }
     game.checkForWins();
-    game.detectDraw();
-    // if no wins,
+    // game.detectDraw();
+    updateScore();
     if (game.winner === null) {
       checkCurrentPlayer();
     }
@@ -67,7 +67,11 @@ function placeToken() {
 };
 
 function updateScore() {
-
+  if (game.winner === game.player1) {
+    player1Scoreboard.innerText = `${game.player1Wins}`;
+  } else if (game.winner === game.player2) {
+    player2Scoreboard.innerText = `${game.player2Wins}`;
+  }
 };
 
 function checkCurrentPlayer() {
