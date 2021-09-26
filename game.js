@@ -9,15 +9,16 @@ class Game {
     this.player1Wins = 0;
     this.player2Wins = 0;
     this.winner = null;
-    this.winningCombos =
-      [1, 2, 3],
-      [1, 4, 7],
-      [1, 5, 9],
-      [2, 5, 8],
-      [3, 6, 9],
-      [3, 5, 7],
-      [4, 5, 6],
-      [7, 8, 9];
+    this.winningCombos = [
+      ['1', '2', '3'],
+      ['1', '4', '7'],
+      ['1', '5', '9'],
+      ['2', '5', '8'],
+      ['3', '6', '9'],
+      ['3', '5', '7'],
+      ['4', '5', '6'],
+      ['7', '8', '9']
+    ];
   }
 
   switchTurns() {
@@ -29,6 +30,25 @@ class Game {
       this.player2Turn = false;
     }
   }
+
+  checkForWins() {
+    for (var i = 0; i < this.winningCombos.length; i++) {
+      console.log('1');
+        if (this.playedSquaresP1.includes(this.winningCombos[i][0]) && this.playedSquaresP1.includes(this.winningCombos[i][1]) && this.playedSquaresP1.includes(this.winningCombos[i][2])) {
+          this.winner = this.player1;
+          header.innerText = `Player ${this.winner.token}‍ wins!`;
+          this.player1Wins++;
+        } else if (this.playedSquaresP2.includes(this.winningCombos[i][0]) && this.playedSquaresP2.includes(this.winningCombos[i][1]) && this.playedSquaresP2.includes(this.winningCombos[i][2])) {
+          this.winner = this.player2;
+          header.innerText = `Player ${this.winner.token} wins!`;
+        }
+    }
+  }
+
+  // detectDraw() {
+  //   if ()
+  //   // if all squares have been played and there is no winner, this.winner = null and return string `It's a tie! Play again?`
+  // }
 };
 
 // Game class should include:
