@@ -48,17 +48,11 @@ class Game {
   }
 
   detectDraw() {
-    for (var i = 0; i < this.playedSquares.length; i++) {
-      if (this.playedSquares === ['1', '2', '3', '4', '5', '6', '7',
-        '8', '9']) {
-          this.isOver = true;
-        }}
-    if (!this.winner && this.isOver) {
-      header.innerText = `It's a tie! Play again?`;
+    if (this.playedSquares.length === 9 && this.winner === null) {
+        header.innerText = `It's a tie! Play again?`;
     }
-    // if all squares have been played and there is no winner, this.winner = null and return string `It's a tie! Play again?`
   }
-};
+}
 
 // Game class should include:
   // 2 instances of Player class $

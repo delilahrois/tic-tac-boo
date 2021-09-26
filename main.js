@@ -60,9 +60,7 @@ function placeToken() {
       return;
     }
     checkCurrentPlayer();
-    // this is checking whose turn it is.
     game.checkForWins();
-    // this is checking if there has been a win this turn.
     game.detectDraw();
     // this is looping through the played squares and checking if the arrays include every square. if every square has been played, the game is over.
     // if the game is over and there is no winner, the header should change to declare a tie, and the function will return (and not update the scoreboard)
