@@ -10,11 +10,17 @@ var player2Scoreboard = document.querySelector('#p2Scoreboard');
 window.addEventListener('load', resetBoard);
 startBtn.addEventListener('click', resetBoard);
 board.addEventListener('click', placeToken);
+
+// Global Variable
 var game;
 
 // Functions
 function resetBoard() {
   game = new Game();
+  game.player1.retrieveWinsFromStorage();
+  game.player2.retrieveWinsFromStorage();
+  player1Scoreboard.innerText = `${game.player1.wins}`;
+  player2Scoreboard.innerText = `${game.player2.wins}`;
   header.innerText = 'Welcome to Tic-Tac-Toe!';
   board.innerHTML = `
   <section class="board" id="board">
@@ -70,6 +76,11 @@ function placeToken() {
   }
 };
 
+function resetAllScores() {
+  game.player1.clearWinsFromStorage();
+  game.player2.clearWinsFromStorage();
+};
+
 function updateScore() {
   if (game.winner === game.player1) {
     if (!game.currentPlayer.wins) {
@@ -83,5 +94,3 @@ function updateScore() {
     player2Scoreboard.innerText = `${game.currentPlayer.wins}`;
   }
 };
-// will not update after score of 1.
-// with new instantiation of Game, board resets to score of 0, and does not refresh until updateScore is called.
