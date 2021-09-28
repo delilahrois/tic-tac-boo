@@ -10,6 +10,7 @@ var player2Scoreboard = document.querySelector('#p2Scoreboard');
 window.addEventListener('load', resetBoard);
 startBtn.addEventListener('click', resetBoard);
 board.addEventListener('click', placeToken);
+var game;
 
 // Functions
 function resetBoard() {
@@ -37,65 +38,50 @@ function resetBoard() {
   `
 };
 
+function checkCurrentPlayer() {
+  if (game.player1.turn === true) {
+      game.currentPlayer = game.player1;
+  } else {
+      game.currentPlayer = game.player2;
+  }
+  header.innerText = `It's ${game.currentPlayer.token}'s turn!`;
+};
+
 function placeToken() {
   if (game.winner) {
     return;
   }
   if (event.target.classList.contains('square')) {
-    if (game.player1Turn === true && !game.playedSquaresP1.includes(event.target.id) && !game.playedSquaresP2.includes(event.target.id)) {
-      game.playedSquaresP1.push(event.target.id);
-      event.target.innerHTML = `
-      <p>🧛‍♀️</p>
-      `
+    if (!game.playedSquares.includes(event.target.id)) {
+      game.currentPlayer.playedSquares.push(event.target.id);
+      event.target.innerText = `${game.currentPlayer.token}`;
       game.playedSquares.push(event.target.id);
-      game.switchTurns();
-    } else if (game.player2Turn === true && !game.playedSquaresP2.includes(event.target.id) && !game.playedSquaresP1.includes(event.target.id)){
-      game.playedSquaresP2.push(event.target.id);
-      event.target.innerHTML = `
-      <p>👻</p>
-      `
-      game.playedSquares.push(event.target.id);
-      game.switchTurns();
-    } else {
-      return;
+      game.checkForWins();
+      game.detectDraw();
     }
-    checkCurrentPlayer();
-    game.checkForWins();
-    game.detectDraw();
-    // this is looping through the played squares and checking if the arrays include every square. if every square has been played, the game is over.
-    // if the game is over and there is no winner, the header should change to declare a tie, and the function will return (and not update the scoreboard)
     if (!game.winner && !game.isOver) {
+      game.switchTurns();
+      checkCurrentPlayer();
+    }
+    if (!game.winner && game.isOver) {
       return;
     }
     updateScore();
-    // if (game.winner === null && !game.isOver) {
-    //   checkCurrentPlayer();
-    // }
   }
 };
 
 function updateScore() {
   if (game.winner === game.player1) {
-    if (!game.player1Wins) {
+    if (!game.currentPlayer.wins) {
       return;
     }
-    player1Scoreboard.innerText = `${game.player1Wins}`;
+    player1Scoreboard.innerText = `${game.currentPlayer.wins}`;
   } else if (game.winner === game.player2) {
-    if (!game.player2Wins) {
+    if (!game.currentPlayer.wins) {
       return;
     }
-    player2Scoreboard.innerText = `${game.player2Wins}`;
+    player2Scoreboard.innerText = `${game.currentPlayer.wins}`;
   }
 };
 // will not update after score of 1.
 // with new instantiation of Game, board resets to score of 0, and does not refresh until updateScore is called.
-
-function checkCurrentPlayer() {
-  var currentPlayer;
-  if (game.player1Turn === true) {
-      currentPlayer = game.player1;
-  } else {
-      currentPlayer = game.player2;
-  }
-  header.innerText = `It's ${currentPlayer.token}'s turn!`;
-};
