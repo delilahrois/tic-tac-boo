@@ -14,6 +14,7 @@ header {
   align-items: center;
   padding: 0px;
   font-size: 3.5vh;
+  width: 100%;
 }
 
 main {
@@ -32,9 +33,17 @@ footer {
 
 /* Game Board */
 
+.board-container {
+  width: 25%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .board {
-  width: 60vh;
-  height: 50vh;
+  width: 100%;
+  height: 40vh;
   display: flex;
   flex-direction: column;
   cursor: pointer;
@@ -54,7 +63,8 @@ footer {
   justify-content: center;
   align-items: center;
   border: 1px solid black;
-  font-size: 60px;
+  font-size: 9vh;
+  font-size-adjust: auto;
 }
 
 /* Scoreboards */
@@ -68,22 +78,26 @@ aside {
 .player-containers {
   display: flex;
   justify-content: space-between;
+  width: 100%;
 }
 
 .player-1-header {
-  margin-right: 55vw;
+  padding-left: 12%;
+}
+
+.player-2-header {
+  padding-right: 12%;
 }
 
 h2 {
-  font-size: 6vh;
-  height: 40px;
+  font-size: 4vw;
   margin: 0px;
 }
 
 .scoreboard {
   height: 200px;
   width: 200px;
-  font-size: 100px;
+  font-size: 8vw;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -115,5 +129,4 @@ button:hover {
 
 .reset-btn {
   font-size: 3.5vh;
-
 }
