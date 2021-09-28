@@ -1,9 +1,9 @@
 body {
-  background-image: linear-gradient(#F6AA1C, #621708);
+  background-image: url('https://cdn.guidingtech.com/imager/media/assets/Halloween-3_74c3a965ea126a2dd446729d04c12124.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  color: #220901;
+  color: #621708;
   font-family: 'Creepster', cursive;
   margin: 0;
 }
