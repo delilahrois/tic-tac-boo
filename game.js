@@ -35,7 +35,7 @@ class Game {
           header.innerText = `Player ${this.winner.token}‍ wins!`;
           this.currentPlayer.wins++;
           this.currentPlayer.saveWinsToStorage();
-          setTimeout(timeoutReset, 2000);
+          setTimeout(resetBoard, 2000);
         }
       }
   }
@@ -44,15 +44,7 @@ class Game {
     if (this.playedSquares.length === 9 && this.winner === null) {
       this.isOver = true;
       header.innerText = `It's a tie! Play again?`;
-      setTimeout(timeoutReset, 2000);
+      setTimeout(resetBoard, 2000);
     }
   }
 };
-
-// Game class should include:
-  // 2 instances of Player class $
-  // a way to keep track of the data for the game board $
-  // a way to keep track of which player's turn it is $
-  // a way to check the Game's board data for win conditions $
-  // a way to detect when a game is a draw (no win) $
-  // a way to reset the Game's board to begin a new Game $ --- this is currently in the main.js file. refactor??

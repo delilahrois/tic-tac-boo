@@ -19,38 +19,6 @@ resetBtn.addEventListener('click', resetAllScores);
 var game;
 
 // Functions
-function resetBoard() {
-  game = new Game();
-  game.player1.retrieveWinsFromStorage();
-  game.player2.retrieveWinsFromStorage();
-  if (game.player1.wins) {
-    player1Scoreboard.innerText = `${game.player1.wins}`;
-  }
-  if (game.player2.wins) {
-    player2Scoreboard.innerText = `${game.player2.wins}`;
-  }
-  header.innerText = `Welcome to Tic-Tac-Toe! ${game.currentPlayer.token}, your move`;
-  board.innerHTML = `
-  <section class="board" id="board">
-    <section class="row-1">
-      <div class="square" id="1">
-    </div>
-      <div class="square" id="2"></div>
-      <div class="square" id="3"></div>
-    </section>
-    <section class="row-2">
-      <div class="square" id="4"></div>
-      <div class="square" id="5"></div>
-      <div class="square" id="6"></div>
-    </section>
-    <section class="row-3">
-      <div class="square" id="7"></div>
-      <div class="square" id="8"></div>
-      <div class="square" id="9"></div>
-    </section>
-  </section>
-  `
-};
 
 function checkCurrentPlayer() {
   if (game.player1.turn === true) {
@@ -84,15 +52,25 @@ function placeToken() {
   }
 };
 
-function timeoutReset() {
+function resetAllScores() {
+  game.player1.clearWinsFromStorage();
+  game.player2.clearWinsFromStorage();
+  resetBoard();
+  player1Scoreboard.innerText = ``;
+  player2Scoreboard.innerText = ``;
+};
+
+function resetBoard() {
   game = new Game();
+  game.player1.retrieveWinsFromStorage();
+  game.player2.retrieveWinsFromStorage();
   if (game.player1.wins) {
     player1Scoreboard.innerText = `${game.player1.wins}`;
   }
   if (game.player2.wins) {
     player2Scoreboard.innerText = `${game.player2.wins}`;
   }
-  header.innerText = `Welcome to Tic-Tac-Toe! ${game.currentPlayer.token}, your move`;
+  header.innerText = `${game.currentPlayer.token}, your move!`;
   board.innerHTML = `
   <section class="board" id="board">
     <section class="row-1">
@@ -113,15 +91,6 @@ function timeoutReset() {
     </section>
   </section>
   `
-};
-
-
-function resetAllScores() {
-  game.player1.clearWinsFromStorage();
-  game.player2.clearWinsFromStorage();
-  resetBoard();
-  player1Scoreboard.innerText = ``;
-  player2Scoreboard.innerText = ``;
 };
 
 function updateScore() {
