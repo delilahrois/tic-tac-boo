@@ -35,6 +35,7 @@ class Game {
           header.innerText = `Player ${this.winner.token}‍ wins!`;
           this.currentPlayer.wins++;
           this.currentPlayer.saveWinsToStorage();
+          setTimeout(timeoutReset, 2000);
         }
       }
   }
@@ -43,6 +44,7 @@ class Game {
     if (this.playedSquares.length === 9 && this.winner === null) {
       this.isOver = true;
       header.innerText = `It's a tie! Play again?`;
+      setTimeout(timeoutReset, 2000);
     }
   }
 };
