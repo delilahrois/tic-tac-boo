@@ -9,7 +9,7 @@ var footer = document.querySelector('#footer');
 var resetBtn = document.querySelector('#resetBtn');
 
 // Event Listeners
-window.addEventListener('load', resetBoard);
+window.addEventListener('load', loadHandler);
 startBtn.addEventListener('click', resetBoard);
 board.addEventListener('click', placeToken);
 resetBtn.addEventListener('click', resetAllScores);
@@ -19,6 +19,10 @@ resetBtn.addEventListener('click', resetAllScores);
 var game;
 
 // Functions
+
+function loadHandler() {
+  setTimeout(resetBoard, 2000);
+};
 
 function checkCurrentPlayer() {
   if (game.player1.turn === true) {
