@@ -3,7 +3,7 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  color: #621708;
+  color: #BC3908;
   font-family: 'Creepster', cursive;
   margin: 0;
 }
@@ -15,6 +15,7 @@ header {
   padding: 0px;
   font-size: 3.5vh;
   width: 100%;
+  opacity: 75%;
 }
 
 main {
@@ -62,9 +63,11 @@ footer {
   width: 33.33%;
   justify-content: center;
   align-items: center;
-  border: 1px solid black;
+  border: 1px solid #F6AA1C;
   font-size: 9vh;
   font-size-adjust: auto;
+  box-shadow: 0 0 20px #F6AA1C;
+  opacity: 75%;
 }
 
 /* Scoreboards */
@@ -101,6 +104,7 @@ h2 {
   display: flex;
   justify-content: center;
   align-items: center;
+  opacity: 75%;
 }
 
 .player1-container, .player2-container {
@@ -129,4 +133,6 @@ button:hover {
 
 .reset-btn {
   font-size: 3.5vh;
+  opacity: 60%;
+  margin-top: 20px;
 }
