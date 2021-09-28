@@ -34,6 +34,7 @@ class Game {
           this.winner = this.currentPlayer;
           header.innerText = `Player ${this.winner.token}‍ wins!`;
           this.currentPlayer.wins++;
+          this.currentPlayer.saveWinsToStorage();
         }
       }
   }
