@@ -29,7 +29,7 @@ function resetBoard() {
   if (game.player2.wins) {
     player2Scoreboard.innerText = `${game.player2.wins}`;
   }
-  header.innerText = 'Welcome to Tic-Tac-Toe!';
+  header.innerText = `Welcome to Tic-Tac-Toe! ${game.currentPlayer.token}, your move`;
   board.innerHTML = `
   <section class="board" id="board">
     <section class="row-1">
@@ -79,8 +79,40 @@ function placeToken() {
     }
     if (!game.winner && game.isOver) {
       return;
+    }
     updateScore();
   }
+};
+
+function timeoutReset() {
+  game = new Game();
+  if (game.player1.wins) {
+    player1Scoreboard.innerText = `${game.player1.wins}`;
+  }
+  if (game.player2.wins) {
+    player2Scoreboard.innerText = `${game.player2.wins}`;
+  }
+  header.innerText = `Welcome to Tic-Tac-Toe! ${game.currentPlayer.token}, your move`;
+  board.innerHTML = `
+  <section class="board" id="board">
+    <section class="row-1">
+      <div class="square" id="1">
+    </div>
+      <div class="square" id="2"></div>
+      <div class="square" id="3"></div>
+    </section>
+    <section class="row-2">
+      <div class="square" id="4"></div>
+      <div class="square" id="5"></div>
+      <div class="square" id="6"></div>
+    </section>
+    <section class="row-3">
+      <div class="square" id="7"></div>
+      <div class="square" id="8"></div>
+      <div class="square" id="9"></div>
+    </section>
+  </section>
+  `
 };
 
 
