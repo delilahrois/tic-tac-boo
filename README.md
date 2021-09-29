@@ -1,5 +1,7 @@
 # Tic-Tac-Boo!
 
+![Image of Tic-Tac-Boo! game](https://user-images.githubusercontent.com/74752738/135184701-b27c9345-5f41-479a-9f0e-c52d264aa000.png)
+
 
 ## Abstract
 
