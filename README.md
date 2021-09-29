@@ -16,7 +16,7 @@ Tic-Tac-Boo! is a fully functional Halloween-themed Tic-Tac-Toe game utilizing J
 
 ## Demonstration
 
-Access a demonstration of this project [here.]()
+Access a demonstration of this project [here.](https://user-images.githubusercontent.com/74752738/135182989-4533b4a0-336b-48e7-858e-b3039ae422ad.mov)
 
 ## Features To Be Added
 
